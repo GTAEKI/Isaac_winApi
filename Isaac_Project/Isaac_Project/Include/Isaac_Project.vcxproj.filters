@@ -22,7 +22,7 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CCore.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>01. Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -33,6 +33,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CCore.h">
+      <Filter>01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
