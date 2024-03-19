@@ -42,5 +42,7 @@ private:
 	
 	ATOM MyRegisterClass();
 	BOOL Create();
+
+	void Logic();
 };
 
