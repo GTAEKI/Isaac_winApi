@@ -1,4 +1,4 @@
-﻿#include "CCore.h"
+﻿#include "Core.h"
 
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdParam, int nCmdShow)

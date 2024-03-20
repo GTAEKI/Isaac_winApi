@@ -1,5 +1,16 @@
 #include "CTimer.h"
 
+CTimer* CTimer::m_pInst = nullptr;
+
+CTimer::CTimer()
+{
+}
+
+CTimer::~CTimer()
+{
+}
+
+
 bool CTimer::init()
 {
 	QueryPerformanceFrequency(&m_tSecond);

@@ -4,6 +4,8 @@
 
 class CSceneManager
 {
+	DECLARE_SINGLE(CSceneManager);
+
 public:
 	bool Init();
 
@@ -26,7 +28,7 @@ public:
 			m_pScene = pScene;
 			break;
 		case SC_NEXT:
-			SAVE_DELETE(m_pScene);
+			SAFE_DELETE(m_pScene);
 			m_pNextScene = pScene;
 			break;
 		}
@@ -34,7 +36,6 @@ public:
 		return pScene;
 	}
 
-	DECLARE_SINGLE(CSceneManager);
 
 private:
 	class CScene* m_pScene;

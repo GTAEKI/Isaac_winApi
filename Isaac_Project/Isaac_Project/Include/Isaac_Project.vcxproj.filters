@@ -22,6 +22,9 @@
     <Filter Include="01. Core\01. Timer">
       <UniqueIdentifier>{67d92f8e-5196-48d5-a8bd-046457140b69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Scene\01.Layer">
+      <UniqueIdentifier>{72fdef72-214b-4f81-a7ae-9635156273dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,11 +39,14 @@
     <ClCompile Include="Scene\InGameScene.cpp">
       <Filter>02. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Timer\CTimer.cpp">
-      <Filter>01. Core\01. Timer</Filter>
-    </ClCompile>
     <ClCompile Include="Core.cpp">
       <Filter>01. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Layer.cpp">
+      <Filter>02. Scene\01.Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer\CTimer.cpp">
+      <Filter>01. Core\01. Timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,11 +71,14 @@
     <ClInclude Include="Flag.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Timer\CTimer.h">
-      <Filter>01. Core\01. Timer</Filter>
-    </ClInclude>
     <ClInclude Include="Core.h">
       <Filter>01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Layer.h">
+      <Filter>02. Scene\01.Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer\CTimer.h">
+      <Filter>01. Core\01. Timer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

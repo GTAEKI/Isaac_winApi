@@ -4,6 +4,27 @@
 
 class CTimer
 {
+	private:
+		static CTimer* m_pInst;
+
+	public:
+		static CTimer* GetInst()
+			{
+				if(!m_pInst)
+				{
+					m_pInst = new CTimer;
+					return m_pInst;
+				}
+			}
+		static void DestroyInst()
+		{
+			SAFE_DELETE(m_pInst);
+		}
+	private:
+		CTimer();
+		~CTimer();
+
+
 public:
 	bool init();
 	bool Update();
@@ -26,7 +47,5 @@ private:
 	float m_fFPSTime;
 	int m_iFrameMax;
 	int m_iFrame;
-
-	DECLARE_SINGLE(CTimer);
 };
 
