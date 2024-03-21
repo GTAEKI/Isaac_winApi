@@ -15,6 +15,11 @@ public:
 		m_iZOrder = iZOrder;
 	}
 
+	void SetScene(class CScene* pScene) 
+	{
+		m_pScene = pScene;
+	}
+
 	int GetZOrder() const 
 	{
 		return m_iZOrder;
@@ -23,6 +28,11 @@ public:
 	string GetTag() const 
 	{
 		return m_strTag;
+	}
+
+	CScene* GetScene() const 
+	{
+		return m_pScene;
 	}
 
 	~Layer();
@@ -35,6 +45,8 @@ private:
 
 	string m_strTag;//태그
 	int m_iZOrder; // 레이어 순서
+
+	class CScene* m_pScene;
 
 
 

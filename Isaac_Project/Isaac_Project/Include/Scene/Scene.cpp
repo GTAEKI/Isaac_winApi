@@ -17,6 +17,7 @@ Layer* CScene::CreateLayer(const string& strTag, int iZOrder)
 
 	pLayer->SetTag(strTag);
 	pLayer->SetZOrder(iZOrder);
+	pLayer->SetScene(this); // 이 씬에 속할 레이어를 만드는것, 이 함수를 호출한 씬이 이 레이어를 가지도록
 
 	m_LayerList.push_back(pLayer);
 
@@ -31,8 +32,9 @@ Layer* CScene::CreateLayer(const string& strTag, int iZOrder)
 
 CScene::CScene()
 {
-	Layer* pLayer = CreateLayer("Default");
-	pLayer = CreateLayer("UI", INT_MAX);
+	Layer* pLayer = CreateLayer("UI", INT_MAX); 
+	pLayer = CreateLayer("Default");
+	
 }
 
 CScene::~CScene()
