@@ -8,5 +8,8 @@ protected:
 	Obj();
 	virtual ~Obj();
 
+	POSITION m_tPos;
+	_SIZE m_tSize;
+
 };
 
