@@ -8,6 +8,11 @@ class CSceneManager
 
 public:
 	bool Init();
+	void Input(float fDeltaTime);
+	int Update(float fDeltaTime);
+	int LateUpdate(float fDeltaTime);
+	void Collision(float fDeltaTime);
+	void Render(HDC hdc, float fDeltaTime);
 
 	//class CScene* CreateScene(SCENE_TYPE eType);
 	template<typename T>
@@ -35,7 +40,7 @@ public:
 
 		return pScene;
 	}
-
+	
 
 private:
 	class CScene* m_pScene;

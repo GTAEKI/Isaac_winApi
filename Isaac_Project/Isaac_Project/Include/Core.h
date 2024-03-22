@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Game.h"
 
@@ -35,6 +35,7 @@ private:
 	
 	HINSTANCE m_hInst;
 	HWND m_hWnd;
+	HDC m_hDC;
 	RESOLUTION m_tRS;
 
 	CCore();
@@ -42,7 +43,11 @@ private:
 	
 	ATOM MyRegisterClass();
 	BOOL Create();
-
 	void Logic();
+	void Input(float fDeltaTime);
+	int Update(float fDeltaTime);
+	int LateUpdate(float fDeltaTime); // 후처리 해야하는 경우
+	void Collision(float fDeltaTime);
+	void Render(float fDeltaTime);
 };
 

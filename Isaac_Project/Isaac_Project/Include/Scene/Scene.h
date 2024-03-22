@@ -6,6 +6,11 @@ class CScene
 {
 public:
 	virtual bool Init();
+	virtual void Input(float fDeltaTime);
+	virtual int Update(float fDeltaTime);
+	virtual int LateUpdate(float fDeltaTime);
+	virtual void Collision(float fDeltaTime);
+	virtual void Render(HDC hdc, float fDeltaTime);
 
 	class Layer* CreateLayer(const string& strTag, int iZOrder = 0);
 

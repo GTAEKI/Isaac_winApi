@@ -3,6 +3,7 @@
 CTimer* CTimer::m_pInst = nullptr;
 
 CTimer::CTimer()
+	: m_fTimeScale(1.f)
 {
 }
 

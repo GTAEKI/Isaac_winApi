@@ -2,6 +2,7 @@
 
 #define SAFE_DELETE(p) if(p) {delete p; p = NULL;}
 #define SAFE_DELETE_ARRAY(p) if(p) {delete[] p; p = NULL;}
+#define SAFE_RELEASE(p) if(p) {p->Release(); p=NULL;}
 
 // 싱글톤 클래스를 만들어주는 매크로
 // 변수가 들어올 수도있고 타입이 들어올 수도 있음 \를 통해 줄을 나눠줄 수 있다.

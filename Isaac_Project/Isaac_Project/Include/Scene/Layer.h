@@ -4,6 +4,13 @@
 
 class Layer
 {
+public :
+	void Input(float fDeltaTime);
+	int Update(float fDeltaTime);
+	int LateUpdate(float fDeltaTime);
+	void Collision(float fDeltaTime);
+	void Render(HDC hdc, float fDeltaTime);
+
 public:
 	void SetTag(const string& strTag) 
 	{
@@ -43,12 +50,10 @@ private:
 
 	Layer();
 
+	class CScene* m_pScene;
 	string m_strTag;//태그
 	int m_iZOrder; // 레이어 순서
-
-	class CScene* m_pScene;
-
-
+	list<class Obj*> m_ObjList;
 
 };
 
