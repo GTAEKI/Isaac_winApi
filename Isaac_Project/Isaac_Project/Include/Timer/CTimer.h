@@ -4,26 +4,7 @@
 
 class CTimer
 {
-	private:
-		static CTimer* m_pInst;
-
-	public:
-		static CTimer* GetInst()
-			{
-				if(!m_pInst)
-				{
-					m_pInst = new CTimer;
-					return m_pInst;
-				}
-			}
-		static void DestroyInst()
-		{
-			SAFE_DELETE(m_pInst);
-		}
-	private:
-		CTimer();
-		~CTimer();
-
+	DECLARE_SINGLE(CTimer);
 
 public:
 	bool init();

@@ -16,8 +16,8 @@
 				if(!m_pInst)\
 				{\
 					m_pInst = new Type;\
-					return m_pInst;\
 				}\
+				return m_pInst;\
 			}\
 		static void DestroyInst()\
 		{\

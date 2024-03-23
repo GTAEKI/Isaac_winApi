@@ -18,8 +18,6 @@ public:
 	static void DestroyInst() 
 	{
 		SAFE_DELETE(m_pInst);
-		//delete m_pInst;
-		//m_pInst = NULL;
 	}
 
 	bool Init(HINSTANCE hInst);
@@ -43,6 +41,7 @@ private:
 	
 	ATOM MyRegisterClass();
 	BOOL Create();
+
 	void Logic();
 	void Input(float fDeltaTime);
 	int Update(float fDeltaTime);

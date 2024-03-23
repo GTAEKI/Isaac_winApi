@@ -1,6 +1,6 @@
 #include "CTimer.h"
 
-CTimer* CTimer::m_pInst = nullptr;
+DEFINITION_SINGLE(CTimer);
 
 CTimer::CTimer()
 	: m_fTimeScale(1.f)

@@ -7,6 +7,7 @@ class CSceneManager
 	DECLARE_SINGLE(CSceneManager);
 
 public:
+
 	bool Init();
 	void Input(float fDeltaTime);
 	int Update(float fDeltaTime);
@@ -18,7 +19,7 @@ public:
 	template<typename T>
 	T* CreateScene(SCENE_CREATE sc) 
 	{
-		T* pScene = new T;
+		 T* pScene = new T;
 
 		if (!pScene->Init()) 
 		{

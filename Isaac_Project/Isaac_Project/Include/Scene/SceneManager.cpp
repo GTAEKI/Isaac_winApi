@@ -5,8 +5,8 @@
 DEFINITION_SINGLE(CSceneManager);
 
 CSceneManager::CSceneManager() :
-	m_pScene(NULL),
-	m_pNextScene(NULL)
+	m_pScene(nullptr),
+	m_pNextScene(nullptr)
 {
 }
 
