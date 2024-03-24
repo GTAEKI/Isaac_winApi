@@ -1,4 +1,6 @@
 ﻿#include "InGameScene.h"
+#include "../Object/Player.h"
+#include "Layer.h"
 
 bool CInGameScene::Init()
 {
@@ -8,30 +10,14 @@ bool CInGameScene::Init()
 		return false;
 	}
 
+	Layer* pLayer = FindLayer("Default");
+
+	Player* pPlayer = Obj::CreateObj<Player>("Player", pLayer);
+
+	SAFE_RELEASE(pPlayer);
+
 	return true;
 }
-
-//void CInGameScene::Input(float fDeltaTime)
-//{
-//}
-//
-//int CInGameScene::Update(float fDeltaTime)
-//{
-//	return 0;
-//}
-//
-//int CInGameScene::LateUpdate(float fDeltaTime)
-//{
-//	return 0;
-//}
-//
-//void CInGameScene::Collision(float fDeltaTime)
-//{
-//}
-//
-//void CInGameScene::Render(HDC hdc, float fDeltaTime)
-//{
-//}
 
 CInGameScene::CInGameScene()
 {

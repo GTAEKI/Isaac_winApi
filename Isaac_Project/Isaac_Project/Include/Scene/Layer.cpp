@@ -65,6 +65,15 @@ void Layer::Render(HDC hdc, float fDeltaTime)
 	}
 }
 
+void Layer::AddObject(Obj* pObj)
+{
+	pObj->SetScene(m_pScene);
+	pObj->SetLayer(this);
+	pObj->AddRef();
+
+	m_ObjList.push_back(pObj);
+}
+
 Layer::~Layer()
 {
 	Safe_Release_VecList(m_ObjList);

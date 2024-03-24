@@ -87,6 +87,19 @@ Layer* CScene::CreateLayer(const string& strTag, int iZOrder)
 	return pLayer;
 }
 
+Layer* CScene::FindLayer(const string& strTag)
+{
+	list<Layer*>::iterator iter;
+	list<Layer*>::iterator iterEnd = m_LayerList.end();
+
+	for (iter = m_LayerList.begin(); iter != iterEnd; ++iter)
+	{
+		if((*iter)->GetTag() == strTag) return *iter;
+	}
+
+	return NULL;
+}
+
 CScene::CScene()
 {
 	Layer* pLayer = CreateLayer("UI", INT_MAX); 

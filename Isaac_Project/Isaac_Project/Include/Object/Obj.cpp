@@ -1,10 +1,5 @@
 #include "Obj.h"
 
-bool Obj::Init()
-{
-	return true;
-}
-
 void Obj::Input(float fDeltaTime)
 {
 }
@@ -28,8 +23,12 @@ void Obj::Render(HDC hdc, float fDeltaTime)
 }
 
 Obj::Obj()
-	: m_iRef(1)
 {
+}
+
+Obj::Obj(const Obj& obj)
+{
+
 }
 
 Obj::~Obj()

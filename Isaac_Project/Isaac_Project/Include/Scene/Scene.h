@@ -13,6 +13,7 @@ public:
 	virtual void Render(HDC hdc, float fDeltaTime);
 
 	class Layer* CreateLayer(const string& strTag, int iZOrder = 0);
+	class Layer* FindLayer(const string& strTag);
 
 	static bool LayerSort(Layer* pL1, Layer* pL2);
 

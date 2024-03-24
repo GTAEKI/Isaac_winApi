@@ -42,6 +42,8 @@ public:
 		return m_pScene;
 	}
 
+	void AddObject(class Obj* pObj);
+
 	~Layer();
 
 private:
