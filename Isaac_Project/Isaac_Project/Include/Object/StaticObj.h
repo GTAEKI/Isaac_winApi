@@ -1,7 +1,7 @@
 #pragma once
 #include "Obj.h"
-class StaticObj :
-    public Obj
+class CStaticObj :
+    public CObj
 {
 public :
 	virtual bool Init()=0;
@@ -12,8 +12,8 @@ public :
 	virtual void Render(HDC hdc, float fDeltaTime);
 
 protected:
-    StaticObj();
-	StaticObj(const StaticObj& staticObj);
-    virtual ~StaticObj();
+	CStaticObj();
+	CStaticObj(const CStaticObj& staticObj);
+    virtual ~CStaticObj();
 };
 

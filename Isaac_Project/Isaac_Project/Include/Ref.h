@@ -1,5 +1,5 @@
 #pragma once
-class Ref
+class CRef
 {
 public:
 	void AddRef() 
@@ -20,8 +20,8 @@ public:
 	}
 
 protected:
-	Ref();
-	virtual ~Ref() = 0;
+	CRef();
+	virtual ~CRef() = 0;
 
 	int m_iRef;
 

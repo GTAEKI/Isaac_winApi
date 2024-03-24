@@ -2,7 +2,7 @@
 
 #include "../Game.h"
 
-class Layer
+class CLayer
 {
 public :
 	void Input(float fDeltaTime);
@@ -42,20 +42,20 @@ public:
 		return m_pScene;
 	}
 
-	void AddObject(class Obj* pObj);
+	void AddObject(class CObj* pObj);
 
-	~Layer();
+	~CLayer();
 
 private:
 	// 씬 통해서만 생성하게 할 것이다.
 	friend class CScene;
 
-	Layer();
+	CLayer();
 
 	class CScene* m_pScene;
 	string m_strTag;//태그
 	int m_iZOrder; // 레이어 순서
-	list<class Obj*> m_ObjList;
+	list<class CObj*> m_ObjList;
 
 };
 

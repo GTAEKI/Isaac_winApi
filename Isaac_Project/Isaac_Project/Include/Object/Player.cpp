@@ -1,42 +1,42 @@
 #include "Player.h"
 
-bool Player::Init()
+bool CPlayer::Init()
 {
 	return true;
 }
 
-void Player::Input(float fDeltaTime)
+void CPlayer::Input(float fDeltaTime)
 {
 }
 
-int Player::Update(float fDeltaTime)
-{
-	return 0;
-}
-
-int Player::LateUpdate(float fDeltaTime)
+int CPlayer::Update(float fDeltaTime)
 {
 	return 0;
 }
 
-void Player::Collision(float fDeltaTime)
+int CPlayer::LateUpdate(float fDeltaTime)
+{
+	return 0;
+}
+
+void CPlayer::Collision(float fDeltaTime)
 {
 }
 
-void Player::Render(HDC hdc, float fDeltaTime)
+void CPlayer::Render(HDC hdc, float fDeltaTime)
 {
 	Rectangle(hdc, m_tPos.x, m_tPos.y, m_tPos.x + m_tSize.x, m_tPos.y + m_tSize.y);
 }
 
-Player::Player()
+CPlayer::CPlayer()
 {
 }
 
-Player::Player(const Player& player)
-	: MoveObj(player)
+CPlayer::CPlayer(const CPlayer& player)
+	: CMoveObj(player)
 {
 }
 
-Player::~Player()
+CPlayer::~CPlayer()
 {
 }

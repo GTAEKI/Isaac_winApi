@@ -1,10 +1,10 @@
 #include "Ref.h"
 
-Ref::Ref()
+CRef::CRef()
 	:m_iRef(1)
 {
 }
 
-Ref::~Ref()
+CRef::~CRef()
 {
 }

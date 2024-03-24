@@ -1,6 +1,6 @@
 ﻿#include "Core.h"
 #include "Scene\SceneManager.h"
-#include "Timer\CTimer.h"
+#include "Timer\Timer.h"
 
 CCore* CCore::m_pInst = NULL;
 bool CCore::m_bLoop = true;

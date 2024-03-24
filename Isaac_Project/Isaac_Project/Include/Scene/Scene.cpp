@@ -8,8 +8,8 @@ bool CScene::Init()
 
 void CScene::Input(float fDeltaTime)
 {
-	list<Layer*>::iterator iter;
-	list<Layer*>::iterator iterEnd = m_LayerList.end();
+	list<CLayer*>::iterator iter;
+	list<CLayer*>::iterator iterEnd = m_LayerList.end();
 
 	for (iter = m_LayerList.begin(); iter != iterEnd; ++iter) 
 	{
@@ -19,8 +19,8 @@ void CScene::Input(float fDeltaTime)
 
 int CScene::Update(float fDeltaTime)
 {
-	list<Layer*>::iterator iter;
-	list<Layer*>::iterator iterEnd = m_LayerList.end();
+	list<CLayer*>::iterator iter;
+	list<CLayer*>::iterator iterEnd = m_LayerList.end();
 
 	for (iter = m_LayerList.begin(); iter != iterEnd; ++iter)
 	{
@@ -31,8 +31,8 @@ int CScene::Update(float fDeltaTime)
 
 int CScene::LateUpdate(float fDeltaTime)
 {
-	list<Layer*>::iterator iter;
-	list<Layer*>::iterator iterEnd = m_LayerList.end();
+	list<CLayer*>::iterator iter;
+	list<CLayer*>::iterator iterEnd = m_LayerList.end();
 
 	for (iter = m_LayerList.begin(); iter != iterEnd; ++iter)
 	{
@@ -43,8 +43,8 @@ int CScene::LateUpdate(float fDeltaTime)
 
 void CScene::Collision(float fDeltaTime)
 {
-	list<Layer*>::iterator iter;
-	list<Layer*>::iterator iterEnd = m_LayerList.end();
+	list<CLayer*>::iterator iter;
+	list<CLayer*>::iterator iterEnd = m_LayerList.end();
 
 	for (iter = m_LayerList.begin(); iter != iterEnd; ++iter)
 	{
@@ -54,8 +54,8 @@ void CScene::Collision(float fDeltaTime)
 
 void CScene::Render(HDC hdc, float fDeltaTime)
 {
-	list<Layer*>::iterator iter;
-	list<Layer*>::iterator iterEnd = m_LayerList.end();
+	list<CLayer*>::iterator iter;
+	list<CLayer*>::iterator iterEnd = m_LayerList.end();
 
 	for (iter = m_LayerList.begin(); iter != iterEnd; ++iter)
 	{
@@ -63,14 +63,14 @@ void CScene::Render(HDC hdc, float fDeltaTime)
 	}
 }
 
-bool CScene::LayerSort(Layer* pL1, Layer* pL2)
+bool CScene::LayerSort(CLayer* pL1, CLayer* pL2)
 {
 	return pL1->GetZOrder() < pL2->GetZOrder();
 }
 
-Layer* CScene::CreateLayer(const string& strTag, int iZOrder)
+CLayer* CScene::CreateLayer(const string& strTag, int iZOrder)
 {
-	Layer* pLayer = new Layer;
+	CLayer* pLayer = new CLayer;
 
 	pLayer->SetTag(strTag);
 	pLayer->SetZOrder(iZOrder);
@@ -87,10 +87,10 @@ Layer* CScene::CreateLayer(const string& strTag, int iZOrder)
 	return pLayer;
 }
 
-Layer* CScene::FindLayer(const string& strTag)
+CLayer* CScene::FindLayer(const string& strTag)
 {
-	list<Layer*>::iterator iter;
-	list<Layer*>::iterator iterEnd = m_LayerList.end();
+	list<CLayer*>::iterator iter;
+	list<CLayer*>::iterator iterEnd = m_LayerList.end();
 
 	for (iter = m_LayerList.begin(); iter != iterEnd; ++iter)
 	{
@@ -102,7 +102,7 @@ Layer* CScene::FindLayer(const string& strTag)
 
 CScene::CScene()
 {
-	Layer* pLayer = CreateLayer("UI", INT_MAX); 
+	CLayer* pLayer = CreateLayer("UI", INT_MAX); 
 	pLayer = CreateLayer("Default");
 	
 }

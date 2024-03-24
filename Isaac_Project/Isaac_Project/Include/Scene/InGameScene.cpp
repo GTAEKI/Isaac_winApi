@@ -10,9 +10,9 @@ bool CInGameScene::Init()
 		return false;
 	}
 
-	Layer* pLayer = FindLayer("Default");
+	CLayer* pLayer = FindLayer("Default");
 
-	Player* pPlayer = Obj::CreateObj<Player>("Player", pLayer);
+	CPlayer* pPlayer = CObj::CreateObj<CPlayer>("Player",pLayer);
 
 	SAFE_RELEASE(pPlayer);
 

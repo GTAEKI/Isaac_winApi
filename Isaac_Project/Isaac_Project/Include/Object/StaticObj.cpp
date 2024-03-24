@@ -1,37 +1,37 @@
 #include "StaticObj.h"
 
-void StaticObj::Input(float fDeltaTime)
+void CStaticObj::Input(float fDeltaTime)
 {
 }
 
-int StaticObj::Update(float fDeltaTime)
-{
-	return 0;
-}
-
-int StaticObj::LateUpdate(float fDeltaTime)
+int CStaticObj::Update(float fDeltaTime)
 {
 	return 0;
 }
 
-void StaticObj::Collision(float fDeltaTime)
+int CStaticObj::LateUpdate(float fDeltaTime)
+{
+	return 0;
+}
+
+void CStaticObj::Collision(float fDeltaTime)
 {
 }
 
-void StaticObj::Render(HDC hdc, float fDeltaTime)
+void CStaticObj::Render(HDC hdc, float fDeltaTime)
 {
 }
 
-StaticObj::StaticObj()
+CStaticObj::CStaticObj()
 {
 }
 
-StaticObj::StaticObj(const StaticObj& staticObj)
-	: Obj(staticObj)
+CStaticObj::CStaticObj(const CStaticObj& staticObj)
+	: CObj(staticObj)
 {
 
 }
 
-StaticObj::~StaticObj()
+CStaticObj::~CStaticObj()
 {
 }

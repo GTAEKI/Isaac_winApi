@@ -1,4 +1,4 @@
-#include "CTimer.h"
+#include "Timer.h"
 
 DEFINITION_SINGLE(CTimer);
 

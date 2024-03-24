@@ -12,15 +12,15 @@ public:
 	virtual void Collision(float fDeltaTime);
 	virtual void Render(HDC hdc, float fDeltaTime);
 
-	class Layer* CreateLayer(const string& strTag, int iZOrder = 0);
-	class Layer* FindLayer(const string& strTag);
+	class CLayer* CreateLayer(const string& strTag, int iZOrder = 0);
+	class CLayer* FindLayer(const string& strTag);
 
-	static bool LayerSort(Layer* pL1, Layer* pL2);
+	static bool LayerSort(CLayer* pL1, CLayer* pL2);
 
 protected:
 	friend class CSceneManager;
 
-	list<class Layer*> m_LayerList;
+	list<class CLayer*> m_LayerList;
 
 	CScene();
 	virtual ~CScene() = 0;

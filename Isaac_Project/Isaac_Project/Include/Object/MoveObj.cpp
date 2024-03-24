@@ -1,36 +1,36 @@
 #include "MoveObj.h"
 
-void MoveObj::Input(float fDeltaTime)
+void CMoveObj::Input(float fDeltaTime)
 {
 }
 
-int MoveObj::Update(float fDeltaTime)
-{
-	return 0;
-}
-
-int MoveObj::LateUpdate(float fDeltaTime)
+int CMoveObj::Update(float fDeltaTime)
 {
 	return 0;
 }
 
-void MoveObj::Collision(float fDeltaTime)
+int CMoveObj::LateUpdate(float fDeltaTime)
+{
+	return 0;
+}
+
+void CMoveObj::Collision(float fDeltaTime)
 {
 }
 
-void MoveObj::Render(HDC hdc, float fDeltaTime)
+void CMoveObj::Render(HDC hdc, float fDeltaTime)
 {
 }
 
-MoveObj::MoveObj()
+CMoveObj::CMoveObj()
 {
 }
 
-MoveObj::MoveObj(const MoveObj& obj) 
-	:Obj(obj)
+CMoveObj::CMoveObj(const CMoveObj& obj)
+	:CObj(obj)
 {
 }
 
-MoveObj::~MoveObj()
+CMoveObj::~CMoveObj()
 {
 }

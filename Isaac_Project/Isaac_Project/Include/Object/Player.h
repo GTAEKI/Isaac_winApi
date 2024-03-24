@@ -2,8 +2,8 @@
 
 #include "MoveObj.h"
 
-class Player :
-    public MoveObj
+class CPlayer :
+    public CMoveObj
 {
 public :
 	virtual bool Init();
@@ -13,9 +13,9 @@ public :
 	virtual void Collision(float fDeltaTime);
 	virtual void Render(HDC hdc, float fDeltaTime);
 
-private:
-    Player();
-	Player(const Player& player);
-    ~Player();
+public:
+	CPlayer();
+	CPlayer(const CPlayer& player);
+    ~CPlayer();
 };
 

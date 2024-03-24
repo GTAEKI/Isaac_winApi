@@ -2,9 +2,10 @@
 
 #include "../Game.h"
 #include "../Ref.h"
+#include "../Scene/Layer.h"
 
-class Obj :
-	public Ref
+class CObj :
+	public CRef
 {
 public:
 	virtual bool Init() = 0;
@@ -65,7 +66,7 @@ public:
 	{
 		m_pScene = pScene;
 	}
-	void SetLayer(class Layer* pLayer) 
+	void SetLayer(class CLayer* pLayer)
 	{
 		m_pLayer = pLayer;
 	}
@@ -75,13 +76,13 @@ public:
 		return m_pScene;
 	}
 
-	class Layer* GetLayer() const 
+	class CLayer* GetLayer() const
 	{
 		return m_pLayer;
 	}
 
 	template<typename T>
-	static T* CreateObj(const string& strTag, class Layer* pLayer = NULL) 
+	static T* CreateObj(const string& strTag, class CLayer* pLayer = NULL)
 	{
 		T* pObj = new T;
 
@@ -95,13 +96,14 @@ public:
 		{
 			pLayer->AddObject(pObj);
 		}
+
 		return pObj;
 	}
 
 protected:
-	Obj();
-	Obj(const Obj& obj);
-	virtual ~Obj();
+	CObj();
+	CObj(const CObj& obj);
+	virtual ~CObj();
 
 	string m_strTag;
 	POSITION m_tPos;
@@ -109,6 +111,6 @@ protected:
 	POSITION m_tPivot;
 
 	class CScene* m_pScene;
-	class Layer* m_pLayer;
+	class CLayer* m_pLayer;
 };
 

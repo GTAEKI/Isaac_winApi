@@ -1,17 +1,17 @@
 #include "Layer.h"
 #include "../Object/Obj.h"
 
-Layer::Layer() :
+CLayer::CLayer() :
 	m_iZOrder(0),
 	m_strTag(""),
 	m_pScene(NULL)
 {
 }
 
-void Layer::Input(float fDeltaTime)
+void CLayer::Input(float fDeltaTime)
 {
-	list<Obj*>::iterator iter;
-	list<Obj*>::iterator iterEnd = m_ObjList.end();
+	list<CObj*>::iterator iter;
+	list<CObj*>::iterator iterEnd = m_ObjList.end();
 
 	for (iter = m_ObjList.begin(); iter != iterEnd; ++iter)
 	{
@@ -19,10 +19,10 @@ void Layer::Input(float fDeltaTime)
 	}
 }
 
-int Layer::Update(float fDeltaTime)
+int CLayer::Update(float fDeltaTime)
 {
-	list<Obj*>::iterator iter;
-	list<Obj*>::iterator iterEnd = m_ObjList.end();
+	list<CObj*>::iterator iter;
+	list<CObj*>::iterator iterEnd = m_ObjList.end();
 
 	for (iter = m_ObjList.begin(); iter != iterEnd; ++iter)
 	{
@@ -31,10 +31,10 @@ int Layer::Update(float fDeltaTime)
 	return 0;
 }
 
-int Layer::LateUpdate(float fDeltaTime)
+int CLayer::LateUpdate(float fDeltaTime)
 {
-	list<Obj*>::iterator iter;
-	list<Obj*>::iterator iterEnd = m_ObjList.end();
+	list<CObj*>::iterator iter;
+	list<CObj*>::iterator iterEnd = m_ObjList.end();
 
 	for (iter = m_ObjList.begin(); iter != iterEnd; ++iter)
 	{
@@ -43,10 +43,10 @@ int Layer::LateUpdate(float fDeltaTime)
 	return 0;
 }
 
-void Layer::Collision(float fDeltaTime)
+void CLayer::Collision(float fDeltaTime)
 {
-	list<Obj*>::iterator iter;
-	list<Obj*>::iterator iterEnd = m_ObjList.end();
+	list<CObj*>::iterator iter;
+	list<CObj*>::iterator iterEnd = m_ObjList.end();
 
 	for (iter = m_ObjList.begin(); iter != iterEnd; ++iter)
 	{
@@ -54,10 +54,10 @@ void Layer::Collision(float fDeltaTime)
 	}
 }
 
-void Layer::Render(HDC hdc, float fDeltaTime)
+void CLayer::Render(HDC hdc, float fDeltaTime)
 {
-	list<Obj*>::iterator iter;
-	list<Obj*>::iterator iterEnd = m_ObjList.end();
+	list<CObj*>::iterator iter;
+	list<CObj*>::iterator iterEnd = m_ObjList.end();
 
 	for (iter = m_ObjList.begin(); iter != iterEnd; ++iter)
 	{
@@ -65,7 +65,7 @@ void Layer::Render(HDC hdc, float fDeltaTime)
 	}
 }
 
-void Layer::AddObject(Obj* pObj)
+void CLayer::AddObject(CObj* pObj)
 {
 	pObj->SetScene(m_pScene);
 	pObj->SetLayer(this);
@@ -74,7 +74,7 @@ void Layer::AddObject(Obj* pObj)
 	m_ObjList.push_back(pObj);
 }
 
-Layer::~Layer()
+CLayer::~CLayer()
 {
 	Safe_Release_VecList(m_ObjList);
 }

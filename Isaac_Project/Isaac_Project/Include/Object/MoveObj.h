@@ -1,7 +1,7 @@
 #pragma once
 #include "Obj.h"
-class MoveObj :
-    public Obj
+class CMoveObj :
+    public CObj
 {
 public:
 	virtual bool Init() = 0;
@@ -12,8 +12,8 @@ public:
 	virtual void Render(HDC hdc, float fDeltaTime);
 
 protected:
-    MoveObj();
-	MoveObj(const MoveObj& obj);
-    virtual ~MoveObj();
+	CMoveObj();
+	CMoveObj(const CMoveObj& obj);
+    virtual ~CMoveObj();
 };
 
