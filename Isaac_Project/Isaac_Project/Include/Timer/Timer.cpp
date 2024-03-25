@@ -26,12 +26,12 @@ bool CTimer::init()
 	return true;
 }
 
-bool CTimer::Update()
+void CTimer::Update()
 {
 	LARGE_INTEGER tTime;
 	QueryPerformanceCounter(&tTime);
 
 	m_fDeltaTime = (tTime.QuadPart - m_tTime.QuadPart) / (float)m_tSecond.QuadPart;
 
-	return false;
+	m_tTime = tTime;
 }

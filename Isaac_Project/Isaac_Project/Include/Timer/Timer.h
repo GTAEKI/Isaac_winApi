@@ -8,7 +8,7 @@ class CTimer
 
 public:
 	bool init();
-	bool Update();
+	void Update();
 
 	float GetDeltaTime() const 
 	{

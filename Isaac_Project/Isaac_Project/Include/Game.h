@@ -6,6 +6,7 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <crtdbg.h> // 메모리 누수를 체크할 수 있는 기능을 제공
 
 using namespace std;
 

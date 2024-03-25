@@ -7,6 +7,8 @@ bool CCore::m_bLoop = true;
 
 CCore::CCore()
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); // 메모리 누수를 체크
+	//_CrtSetBreakAlloc(214); //메모리 누수 있을때만 그 위치로 이동해주는것
 }
 
 CCore::~CCore() 

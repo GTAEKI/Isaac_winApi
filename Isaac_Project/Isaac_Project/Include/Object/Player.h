@@ -13,7 +13,9 @@ public :
 	virtual void Collision(float fDeltaTime);
 	virtual void Render(HDC hdc, float fDeltaTime);
 
-public:
+private:
+	friend class CObj;
+
 	CPlayer();
 	CPlayer(const CPlayer& player);
     ~CPlayer();

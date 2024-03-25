@@ -11,9 +11,45 @@ public:
 	virtual void Collision(float fDeltaTime);
 	virtual void Render(HDC hdc, float fDeltaTime);
 
+	void Move(float x, float y);
+	void Move(float x, float y, float fDeltaTime);
+	void Move(const POSITION& tMove);
+	void Move(const POSITION& tMove, float fDeltaTime);
+	void MoveX(float x);
+	void MoveXFromSpeed(float fDeltaTime, MOVE_DIR eDir);
+	void MoveX(float x, float fDeltaTime);
+	void MoveY(float y);
+	void MoveY(float y, float fDeltaTime);
+	void MoveYFromSpeed(float fDeltaTime, MOVE_DIR eDir);
+	void MoveAngle(float fSpeed);
+	void MoveAngle(float fSpeed, float fDeltaTime);
+
+	void SetAngle(float fAngle) 
+	{
+		m_fAngle = fAngle;
+	}
+	void SetSpeed(float fSpeed) 
+	{
+		m_fSpeed = fSpeed;
+	}
+
+	float GetAngle() const 
+	{
+		return m_fAngle;
+	}
+
+	float GetSpeed() const
+	{
+		return m_fSpeed;
+	}
+
 protected:
 	CMoveObj();
 	CMoveObj(const CMoveObj& obj);
     virtual ~CMoveObj();
+
+private:
+	float m_fAngle;
+	float m_fSpeed;
 };
 
