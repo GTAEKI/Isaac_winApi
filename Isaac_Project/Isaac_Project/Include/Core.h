@@ -25,6 +25,11 @@ public:
 
 	static LRESULT CALLBACK WndProc(HWND hWnd, UINT messageType, WPARAM wParam, LPARAM lParam);
 
+	RESOLUTION GetResolution() const 
+	{
+		return m_tRS;
+	}
+
 private:
 	WNDCLASS windowClass;
 	
