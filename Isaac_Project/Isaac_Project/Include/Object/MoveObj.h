@@ -10,6 +10,7 @@ public:
 	virtual int LateUpdate(float fDeltaTime);
 	virtual void Collision(float fDeltaTime);
 	virtual void Render(HDC hdc, float fDeltaTime);
+	virtual CMoveObj* Clone() = 0;
 
 	void Move(float x, float y);
 	void Move(float x, float y, float fDeltaTime);
