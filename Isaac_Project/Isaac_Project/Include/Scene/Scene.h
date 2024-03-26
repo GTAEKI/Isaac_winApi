@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "../Game.h"
 
@@ -24,5 +24,7 @@ protected:
 
 	CScene();
 	virtual ~CScene() = 0;
+
+	
 };
 

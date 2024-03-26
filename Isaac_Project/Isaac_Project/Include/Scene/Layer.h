@@ -44,6 +44,27 @@ public:
 
 	void AddObject(class CObj* pObj);
 
+
+	void SetEnable(bool bEnable)
+	{
+		m_bEnable = bEnable;
+	}
+
+	void Die()
+	{
+		m_bLife = false;
+	}
+
+	bool GetEnable() const
+	{
+		return m_bEnable;
+	}
+
+	bool GetLive() const
+	{
+		return m_bLife;
+	}
+
 	~CLayer();
 
 private:
@@ -56,6 +77,9 @@ private:
 	string m_strTag;//태그
 	int m_iZOrder; // 레이어 순서
 	list<class CObj*> m_ObjList;
+	bool m_bEnable;
+	bool m_bLife;
+
 
 };
 

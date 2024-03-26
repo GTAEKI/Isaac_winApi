@@ -97,8 +97,16 @@ public:
 			pLayer->AddObject(pObj);
 		}
 
+		AddObj(pObj);
+
 		return pObj;
 	}
+
+	static void AddObj(CObj* pObj);
+	static CObj* FindObject(const string& strTag);
+	static void EraseObj(CObj* pObj);
+	static void EraseObj(const string& strTag);
+	static void EraseObj();
 
 protected:
 	CObj();
@@ -112,5 +120,9 @@ protected:
 
 	class CScene* m_pScene;
 	class CLayer* m_pLayer;
+
+private:
+	static list<CObj*> m_ObjList;
+	static unordered_map<string, CObj*> m_mapPrototype;
 };
 
