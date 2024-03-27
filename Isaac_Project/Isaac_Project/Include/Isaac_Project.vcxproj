@@ -215,7 +215,10 @@
     <ClCompile Include="Object\Obj.cpp" />
     <ClCompile Include="Object\Player.cpp" />
     <ClCompile Include="Object\StaticObj.cpp" />
+    <ClCompile Include="PathManager.cpp" />
     <ClCompile Include="Ref.cpp" />
+    <ClCompile Include="Resources\ResourcesManager.cpp" />
+    <ClCompile Include="Resources\Texture.cpp" />
     <ClCompile Include="Scene\InGameScene.cpp" />
     <ClCompile Include="Scene\Layer.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
@@ -233,7 +236,10 @@
     <ClInclude Include="Object\Obj.h" />
     <ClInclude Include="Object\Player.h" />
     <ClInclude Include="Object\StaticObj.h" />
+    <ClInclude Include="PathManager.h" />
     <ClInclude Include="Ref.h" />
+    <ClInclude Include="Resources\ResourcesManager.h" />
+    <ClInclude Include="Resources\Texture.h" />
     <ClInclude Include="Scene\InGameScene.h" />
     <ClInclude Include="Scene\Layer.h" />
     <ClInclude Include="Scene\Scene.h" />
