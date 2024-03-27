@@ -16,9 +16,12 @@ public :
 
 private:
 	friend class CObj;
+	friend class CScene;
 
 	CPlayer();
 	CPlayer(const CPlayer& player);
     ~CPlayer();
+
+	void Fire();
 };
 

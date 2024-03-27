@@ -1,9 +1,10 @@
 ﻿#include "Obj.h"
+#include "../Scene/Layer.h"
+#include "../Scene/SceneManager.h"
+#include "../Scene/Scene.h"
 
 // 초기화
 list<CObj*> CObj::m_ObjList;
-unordered_map<string, CObj*> CObj::m_mapPrototype;
-
 
 void CObj::Input(float fDeltaTime)
 {
@@ -29,7 +30,7 @@ void CObj::Render(HDC hdc, float fDeltaTime)
 
 CObj* CObj::CreateCloneObj(const string& strPrototypeKey, const string& strTag, class CLayer* pLayer)
 {
-	CObj* pProto = FindPrototype(strPrototypeKey);
+	CObj* pProto = CScene::FindPrototype(strPrototypeKey);
 
 	if (!pProto) return NULL;
 
@@ -107,30 +108,6 @@ void CObj::EraseObj()
 	Safe_Release_VecList(m_ObjList);
 }
 
-void CObj::ErasePrototype()
-{
-	Safe_Release_Map(m_mapPrototype);
-}
-
-void CObj::ErasePrototype(const string& strTag)
-{
-	unordered_map<string, CObj*>::iterator iter = m_mapPrototype.find(strTag);
-
-	if (!iter->second) return;
-
-	SAFE_RELEASE(iter->second);
-	m_mapPrototype.erase(iter);
-}
-
-CObj* CObj::FindPrototype(const string& strKey)
-{
-	unordered_map<string, CObj*>::iterator iter = m_mapPrototype.find(strKey);
-
-	if (iter == m_mapPrototype.end())
-		return NULL;
-
-	return iter->second;
-}
 
 CObj::CObj()
 {

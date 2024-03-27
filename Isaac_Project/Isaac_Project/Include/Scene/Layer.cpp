@@ -30,7 +30,7 @@ void CLayer::Input(float fDeltaTime)
 	list<CObj*>::iterator iter;
 	list<CObj*>::iterator iterEnd = m_ObjList.end();
 
-	for (iter = m_ObjList.begin(); iter != iterEnd; ++iter)
+	for (iter = m_ObjList.begin(); iter != iterEnd;)
 	{
 		if (!(*iter)->GetEnable())
 		{
@@ -59,7 +59,7 @@ int CLayer::Update(float fDeltaTime)
 	list<CObj*>::iterator iter;
 	list<CObj*>::iterator iterEnd = m_ObjList.end();
 
-	for (iter = m_ObjList.begin(); iter != iterEnd; ++iter)
+	for (iter = m_ObjList.begin(); iter != iterEnd;)
 	{
 		if (!(*iter)->GetEnable())
 		{
@@ -89,7 +89,7 @@ int CLayer::LateUpdate(float fDeltaTime)
 	list<CObj*>::iterator iter;
 	list<CObj*>::iterator iterEnd = m_ObjList.end();
 
-	for (iter = m_ObjList.begin(); iter != iterEnd; ++iter)
+	for (iter = m_ObjList.begin(); iter != iterEnd;)
 	{
 		if (!(*iter)->GetEnable())
 		{
@@ -119,7 +119,7 @@ void CLayer::Collision(float fDeltaTime)
 	list<CObj*>::iterator iter;
 	list<CObj*>::iterator iterEnd = m_ObjList.end();
 
-	for (iter = m_ObjList.begin(); iter != iterEnd; ++iter)
+	for (iter = m_ObjList.begin(); iter != iterEnd;)
 	{
 		if (!(*iter)->GetEnable())
 		{
@@ -148,7 +148,7 @@ void CLayer::Render(HDC hdc, float fDeltaTime)
 	list<CObj*>::iterator iter;
 	list<CObj*>::iterator iterEnd = m_ObjList.end();
 
-	for (iter = m_ObjList.begin(); iter != iterEnd; ++iter)
+	for (iter = m_ObjList.begin(); iter != iterEnd;)
 	{
 		if (!(*iter)->GetEnable())
 		{

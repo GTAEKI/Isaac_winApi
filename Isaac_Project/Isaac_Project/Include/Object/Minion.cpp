@@ -29,6 +29,13 @@ int CMinion::Update(float fDeltaTime)
 		m_eDir = MD_FRONT;
 	}
 
+	m_fFireTime += fDeltaTime;
+	if (m_fFireTime >= m_fFireLimitTime) 
+	{
+		m_fFireTime = 0;
+		Fire();
+	}
+
 	return 0;
 }
 
@@ -57,6 +64,8 @@ CMinion* CMinion::Clone()
 }
 
 CMinion::CMinion()
+	:m_fFireTime(0.f)
+	, m_fFireLimitTime(1.2f)
 {
 }
 
@@ -64,8 +73,22 @@ CMinion::CMinion(const CMinion& minion)
 	:CMoveObj(minion)
 {
 	m_eDir = minion.m_eDir;
+	m_fFireTime = minion.m_fFireTime;
+	m_fFireLimitTime = minion.m_fFireLimitTime;
 }
 
 CMinion::~CMinion()
 {
+}
+
+void CMinion::Fire()
+{
+	CObj* pBullet = CObj::CreateCloneObj("Bullet", "MinionBullet", m_pLayer);
+
+	static_cast<CMoveObj*> (pBullet)->SetAngle(PI);
+
+	pBullet->SetPos(m_tPos.x - pBullet->GetSize().x,
+		((m_tPos.y + m_tPos.y + m_tSize.y) / 2.f) - (pBullet->GetSize().y / 2.f));
+
+	SAFE_RELEASE(pBullet);
 }

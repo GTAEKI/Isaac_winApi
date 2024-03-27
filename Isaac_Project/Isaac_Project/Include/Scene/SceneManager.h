@@ -41,6 +41,12 @@ public:
 
 		return pScene;
 	}
+
+public:
+	class CScene* GetScene() const 
+	{
+		return m_pScene;
+	}
 	
 
 private:

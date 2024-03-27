@@ -104,27 +104,6 @@ public:
 		return pObj;
 	}
 
-	// 프로토타입 생성
-	template<typename T>
-	static T* CreatePrototype(const string& strTag)
-	{
-		T* pObj = new T;
-
-		pObj->SetTag(strTag);
-
-		if (!pObj->Init())
-		{
-			SAFE_RELEASE(pObj);
-			return NULL;
-		}
-		
-		pObj->AddRef();
-		m_mapPrototype.insert(make_pair(strTag, pObj));
-
-		return pObj;
-	}
-
-
 	static CObj* CreateCloneObj(const string& strPrototypeKey, const string& strTag, class CLayer* pLayer = NULL);
 
 	static void AddObj(CObj* pObj);
@@ -133,20 +112,9 @@ public:
 	static void EraseObj(const string& strTag);
 	static void EraseObj();
 
-	static void AddObj(CObj* pObj);
-	static CObj* FindObject(const string& strTag);
-	static void EraseObj(CObj* pObj);
-	static void EraseObj(const string& strTag);
-	static void EraseObj();
-	static void ErasePrototype();
-	static void ErasePrototype(const string& strTag);
-
-private:
-	// 프로토타입 찾는 기능은 외부에서 필요가 없음. 객체 생성시에만 필요
-	static CObj* FindPrototype(const string& strKey);
-
-
 protected:
+	friend class CScene;
+
 	CObj();
 	CObj(const CObj& obj);
 	virtual ~CObj();
@@ -161,6 +129,5 @@ protected:
 
 private:
 	static list<CObj*> m_ObjList;
-	static unordered_map<string, CObj*> m_mapPrototype;
 };
 

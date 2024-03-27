@@ -22,8 +22,8 @@ public:
 	void MoveY(float y);
 	void MoveY(float y, float fDeltaTime);
 	void MoveYFromSpeed(float fDeltaTime, MOVE_DIR eDir);
-	void MoveAngle(float fSpeed);
-	void MoveAngle(float fSpeed, float fDeltaTime);
+	void MoveAngle();
+	void MoveAngle(float fDeltaTime);
 
 	void SetAngle(float fAngle) 
 	{

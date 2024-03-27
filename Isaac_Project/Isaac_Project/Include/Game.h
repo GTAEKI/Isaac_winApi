@@ -14,6 +14,8 @@ using namespace std;
 #include "Types.h"
 #include "Flag.h"
 
+#define PI 3.141592f
+
 template <typename T>
 void Safe_Delete_VecList(T& p) 
 {
@@ -50,7 +52,7 @@ void Safe_Release_Map(T& p)
 
 	for (iter = p.begin(); iter != iterEnd; ++iter)
 	{
-		SAFE_DELETE(iter->second);
+		SAFE_RELEASE(iter->second);
 	}
 
 	p.clear();

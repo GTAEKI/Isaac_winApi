@@ -1,6 +1,6 @@
 #pragma once
 #include "MoveObj.h"
-class CMinion :
+class CBullet :
     public CMoveObj
 {
 public:
@@ -9,20 +9,22 @@ public:
 	virtual int LateUpdate(float fDeltaTime);
 	virtual void Collision(float fDeltaTime);
 	virtual void Render(HDC hdc, float fDeltaTime);
-	virtual CMinion* Clone();
+	virtual CBullet* Clone();
+
+	void SetBulletDistance(float fDist) 
+	{
+		m_fLimitDist = fDist;
+	}
 
 private:
 	friend class CObj;
 	friend class CScene;
 
-	CMinion();
-	CMinion(const CMinion& minion);
-	~CMinion();
+	CBullet();
+	CBullet(const CBullet& bullet);
+	~CBullet();
 
-	MOVE_DIR m_eDir;
-	float m_fFireTime;
-	float m_fFireLimitTime;
-
-	void Fire();
+	float m_fLimitDist;
+	float m_fDist;
 };
 

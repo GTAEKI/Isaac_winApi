@@ -34,6 +34,15 @@
     <Filter Include="03. Object\02. StaticObj">
       <UniqueIdentifier>{c0101f3d-e8f4-4c9d-8920-71698b21a176}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03. Object\01. MoveObj\01.Player">
+      <UniqueIdentifier>{37ffe330-b907-4022-9cfd-2960399767e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Object\01. MoveObj\02.Minion">
+      <UniqueIdentifier>{7075b7c8-ab56-4d56-9bd3-cf32451001a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Object\01. MoveObj\03.Bullet">
+      <UniqueIdentifier>{29bc58fb-0323-40db-9e62-5ecd5196525e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -70,10 +79,13 @@
       <Filter>03. Object\02. StaticObj</Filter>
     </ClCompile>
     <ClCompile Include="Object\Player.cpp">
-      <Filter>03. Object\01. MoveObj</Filter>
+      <Filter>03. Object\01. MoveObj\01.Player</Filter>
     </ClCompile>
     <ClCompile Include="Object\Minion.cpp">
-      <Filter>03. Object\01. MoveObj</Filter>
+      <Filter>03. Object\01. MoveObj\02.Minion</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Bullet.cpp">
+      <Filter>03. Object\01. MoveObj\03.Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,10 +132,13 @@
       <Filter>03. Object\02. StaticObj</Filter>
     </ClInclude>
     <ClInclude Include="Object\Player.h">
-      <Filter>03. Object\01. MoveObj</Filter>
+      <Filter>03. Object\01. MoveObj\01.Player</Filter>
     </ClInclude>
     <ClInclude Include="Object\Minion.h">
-      <Filter>03. Object\01. MoveObj</Filter>
+      <Filter>03. Object\01. MoveObj\02.Minion</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Bullet.h">
+      <Filter>03. Object\01. MoveObj\03.Bullet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
