@@ -14,6 +14,9 @@ using namespace std;
 #include "Types.h"
 #include "Flag.h"
 
+// 텍스처를 사용할때 필요한 라이브러리 <- 기본적으로 윈도우에서 제공해주는 정적 라이브러리
+#pragma comment(lib, "msimg32") // 아래는 코드로 링크를 거는 방법이다.
+
 #define PI 3.141592f
 
 // Path Key

@@ -3,8 +3,11 @@
 bool CPlayer::Init()
 {
 	SetPos(100.f, 100.f);
-	SetSize(100.f, 100.f);
+	SetSize(25.f, 25.f);
 	SetSpeed(400.f);
+
+	SetTexture("Player", L"lost_contact_tears.bmp");
+
 	return true;
 }
 
@@ -58,7 +61,7 @@ void CPlayer::Collision(float fDeltaTime)
 void CPlayer::Render(HDC hdc, float fDeltaTime)
 {
 	CMoveObj::Render(hdc, fDeltaTime);
-	Rectangle(hdc, m_tPos.x, m_tPos.y, m_tPos.x + m_tSize.x, m_tPos.y + m_tSize.y);
+	//Rectangle(hdc, m_tPos.x, m_tPos.y, m_tPos.x + m_tSize.x, m_tPos.y + m_tSize.y);
 }
 
 CPlayer* CPlayer::Clone()

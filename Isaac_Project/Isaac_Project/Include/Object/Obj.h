@@ -82,6 +82,9 @@ public:
 		return m_pLayer;
 	}
 
+	void SetTexture(class CTexture* pTexture);
+	void SetTexture(const string& strKey, const wchar_t* pFileName = NULL, const string& strPathKey = TEXTURE_PATH);
+
 	// 오브젝트 생성
 	template<typename T>
 	static T* CreateObj(const string& strTag, class CLayer* pLayer = NULL)
@@ -126,6 +129,7 @@ protected:
 
 	class CScene* m_pScene;
 	class CLayer* m_pLayer;
+	class CTexture* m_pTexture;
 
 private:
 	static list<CObj*> m_ObjList;

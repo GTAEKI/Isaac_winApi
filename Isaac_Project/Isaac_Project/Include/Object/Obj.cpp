@@ -2,9 +2,33 @@
 #include "../Scene/Layer.h"
 #include "../Scene/SceneManager.h"
 #include "../Scene/Scene.h"
+#include "../Resources/ResourcesManager.h"
+#include "../Resources/Texture.h"
 
 // 초기화
 list<CObj*> CObj::m_ObjList;
+
+
+CObj::CObj()
+	:m_pTexture(NULL)
+{
+}
+
+CObj::CObj(const CObj& obj)
+{
+	*this = obj;
+
+	if (m_pTexture) 
+	{
+		m_pTexture->AddRef();
+	}
+}
+
+CObj::~CObj()
+{
+	SAFE_RELEASE(m_pTexture);
+}
+
 
 void CObj::Input(float fDeltaTime)
 {
@@ -26,6 +50,25 @@ void CObj::Collision(float fDeltaTime)
 
 void CObj::Render(HDC hdc, float fDeltaTime)
 {
+	if (m_pTexture) 
+	{
+		BitBlt(hdc, m_tPos.x, m_tPos.y, m_tSize.x, m_tSize.y, m_pTexture->GetDC(), 0,0, SRCCOPY);
+	}
+
+}
+
+void CObj::SetTexture(CTexture* pTexture)
+{
+	SAFE_RELEASE(m_pTexture);
+	m_pTexture = pTexture;
+
+	if (pTexture) pTexture->AddRef();
+}
+
+void CObj::SetTexture(const string& strKey, const wchar_t* pFileName, const string& strPathKey)
+{
+	SAFE_RELEASE(m_pTexture);
+	m_pTexture = GET_SINGLE(CResourcesManager)->LoadTexture(strKey, pFileName, strPathKey);
 }
 
 CObj* CObj::CreateCloneObj(const string& strPrototypeKey, const string& strTag, class CLayer* pLayer)
@@ -108,16 +151,3 @@ void CObj::EraseObj()
 	Safe_Release_VecList(m_ObjList);
 }
 
-
-CObj::CObj()
-{
-}
-
-CObj::CObj(const CObj& obj)
-{
-
-}
-
-CObj::~CObj()
-{
-}

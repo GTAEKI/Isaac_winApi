@@ -100,7 +100,7 @@
       <Filter>04.Resources</Filter>
     </ClCompile>
     <ClCompile Include="Resources\Texture.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>04.Resources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,7 +162,7 @@
       <Filter>04.Resources</Filter>
     </ClInclude>
     <ClInclude Include="Resources\Texture.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>04.Resources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
