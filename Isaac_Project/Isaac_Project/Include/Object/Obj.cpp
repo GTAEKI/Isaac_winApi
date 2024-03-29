@@ -52,7 +52,9 @@ void CObj::Render(HDC hdc, float fDeltaTime)
 {
 	if (m_pTexture) 
 	{
-		BitBlt(hdc, m_tPos.x, m_tPos.y, m_tSize.x, m_tSize.y, m_pTexture->GetDC(), 0,0, SRCCOPY);
+		POSITION tPos = m_tPos - m_tSize * m_tPivot;
+
+		BitBlt(hdc, tPos.x, tPos.y, m_tSize.x, m_tSize.y, m_pTexture->GetDC(), 0,0, SRCCOPY);
 	}
 
 }

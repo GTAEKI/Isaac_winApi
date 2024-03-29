@@ -1,4 +1,4 @@
-#include "ResourcesManager.h"
+﻿#include "ResourcesManager.h"
 #include "Texture.h"
 
 DEFINITION_SINGLE(CResourcesManager)
@@ -9,6 +9,7 @@ CResourcesManager::CResourcesManager()
 
 CResourcesManager::~CResourcesManager()
 {
+	SAFE_RELEASE(m_pBackBuffer);
 	Safe_Release_Map(m_mapTexture);
 }
 
@@ -16,6 +17,9 @@ bool CResourcesManager::Init(HINSTANCE hInst, HDC hdc)
 {
 	m_hInst = hInst;
 	m_hdc = hdc;
+
+	// 백버퍼를 불러온다.
+	m_pBackBuffer = LoadTexture("BackBuffer", L"BackBuffer.bmp");
 
 	return true;
 }
@@ -51,4 +55,10 @@ CTexture* CResourcesManager::FindTexture(const string& strKey)
 	iter->second->AddRef();
 
 	return iter->second;
+}
+
+CTexture* CResourcesManager::GetBackBuffer() const
+{
+	m_pBackBuffer->AddRef();
+	return m_pBackBuffer;
 }

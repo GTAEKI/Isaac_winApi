@@ -72,6 +72,18 @@ public:
 		m_pLayer = pLayer;
 	}
 
+	void SetPivot(const _SIZE& tPivot)
+	{
+		m_tPivot = tPivot;
+	}
+
+
+	void SetPivot(float x, float y)
+	{
+		m_tPivot.x = x;
+		m_tPivot.y = y;
+	}
+
 	class CScene* GetScene() const 
 	{
 		return m_pScene;
@@ -80,6 +92,11 @@ public:
 	class CLayer* GetLayer() const
 	{
 		return m_pLayer;
+	}
+
+	POSITION GetPivot() const 
+	{
+		return m_tPivot;
 	}
 
 	void SetTexture(class CTexture* pTexture);

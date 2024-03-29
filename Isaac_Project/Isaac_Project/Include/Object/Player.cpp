@@ -2,9 +2,10 @@
 
 bool CPlayer::Init()
 {
-	SetPos(100.f, 100.f);
+	SetPos(0, 0);
 	SetSize(25.f, 25.f);
 	SetSpeed(400.f);
+	SetPivot(0.5f, 0.5f);
 
 	SetTexture("Player", L"lost_contact_tears.bmp");
 
