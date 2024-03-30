@@ -83,11 +83,13 @@ void CCore::Logic()
 void CCore::Input(float fDeltaTime)
 {
 	GET_SINGLE(CSceneManager)->Input(fDeltaTime);
-}
+	GET_SINGLE(CCamera)->Input(fDeltaTime);
+}	
 
 int CCore::Update(float fDeltaTime)
 {
 	GET_SINGLE(CSceneManager)->Update(fDeltaTime);
+	GET_SINGLE(CCamera)->Update(fDeltaTime);
 	return 0;
 }
 
@@ -157,7 +159,7 @@ bool CCore::Init(HINSTANCE hInst)
 	}
 
 	// 카메라 관리자 초기화
-	if (!GET_SINGLE(CCamera)->Init(POSITION(0.f, 0.f), m_tRS, RESOLUTION(1500, 1200))) 
+	if (!GET_SINGLE(CCamera)->Init(POSITION(0.f, 0.f), m_tRS, RESOLUTION(2952, 1860)))
 	{
 		return false;
 	}

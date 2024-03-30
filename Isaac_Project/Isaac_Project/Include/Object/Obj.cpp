@@ -4,6 +4,7 @@
 #include "../Scene/Scene.h"
 #include "../Resources/ResourcesManager.h"
 #include "../Resources/Texture.h"
+#include "../Camera.h"
 
 // 초기화
 list<CObj*> CObj::m_ObjList;
@@ -53,6 +54,7 @@ void CObj::Render(HDC hdc, float fDeltaTime)
 	if (m_pTexture) 
 	{
 		POSITION tPos = m_tPos - m_tSize * m_tPivot;
+		tPos -= GET_SINGLE(CCamera)->GetPos();
 
 		BitBlt(hdc, tPos.x, tPos.y, m_tSize.x, m_tSize.y, m_pTexture->GetDC(), 0,0, SRCCOPY);
 	}

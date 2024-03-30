@@ -1,6 +1,7 @@
 ﻿#include "Stage.h"
 #include "../Resources/Texture.h"
 #include "../Core.h"
+#include"../Camera.h"
 CStage::CStage()
 {
 }
@@ -57,8 +58,9 @@ void CStage::Render(HDC hdc, float fDeltaTime)
 	if (m_pTexture)
 	{
 		POSITION tPos = m_tPos - m_tSize * m_tPivot;
+		POSITION tCamPos = GET_SINGLE(CCamera)->GetPos();
 
-		BitBlt(hdc, tPos.x, tPos.y, GETRESOLUTION.iW, GETRESOLUTION.iH, m_pTexture->GetDC(), 0, 0, SRCCOPY);
+		BitBlt(hdc, tPos.x, tPos.y, GETRESOLUTION.iW, GETRESOLUTION.iH, m_pTexture->GetDC(), tCamPos.x, tCamPos.y, SRCCOPY);
 	}
 }
 

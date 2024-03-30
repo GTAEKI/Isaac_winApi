@@ -74,6 +74,12 @@ typedef struct _tagPosition
 		y += pos.y;
 	}
 
+	void operator -= (const _tagPosition& pos) 
+	{
+		x -= pos.x;
+		y -= pos.y;
+	}
+
 	// ====== + =======
 
 	_tagPosition operator +(const _tagPosition& pos) const
