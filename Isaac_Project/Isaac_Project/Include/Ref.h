@@ -1,6 +1,16 @@
 ﻿#pragma once
 class CRef
 {
+
+protected:
+	CRef();
+	virtual ~CRef() = 0;
+
+	int m_iRef;
+	bool m_bEnable; // 객체를 활성 비활성화 하는 멤버
+	bool m_bLife;
+
+
 public:
 	void AddRef() 
 	{
@@ -38,14 +48,6 @@ public:
 	{
 		return m_bLife;
 	}
-
-protected:
-	CRef();
-	virtual ~CRef() = 0;
-
-	int m_iRef;
-	bool m_bEnable; // 객체를 활성 비활성화 하는 멤버
-	bool m_bLife;
 
 };
 

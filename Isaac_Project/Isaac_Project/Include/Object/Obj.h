@@ -7,6 +7,25 @@
 class CObj :
 	public CRef
 {
+private:
+	static list<CObj*> m_ObjList;
+
+protected:
+	friend class CScene;
+
+	CObj();
+	CObj(const CObj& obj);
+	virtual ~CObj();
+
+	string m_strTag;
+	POSITION m_tPos;
+	_SIZE m_tSize;
+	POSITION m_tPivot;
+
+	class CScene* m_pScene;
+	class CLayer* m_pLayer;
+	class CTexture* m_pTexture;
+
 public:
 	virtual bool Init() = 0;
 	virtual void Input(float fDeltaTime);
@@ -132,23 +151,5 @@ public:
 	static void EraseObj(const string& strTag);
 	static void EraseObj();
 
-protected:
-	friend class CScene;
-
-	CObj();
-	CObj(const CObj& obj);
-	virtual ~CObj();
-
-	string m_strTag;
-	POSITION m_tPos;
-	_SIZE m_tSize;
-	POSITION m_tPivot;
-
-	class CScene* m_pScene;
-	class CLayer* m_pLayer;
-	class CTexture* m_pTexture;
-
-private:
-	static list<CObj*> m_ObjList;
 };
 

@@ -3,6 +3,15 @@
 class CMoveObj :
     public CObj
 {
+private:
+	float m_fAngle;
+	float m_fSpeed;
+
+protected:
+	CMoveObj();
+	CMoveObj(const CMoveObj& obj);
+	virtual ~CMoveObj();
+
 public:
 	virtual bool Init() = 0;
 	virtual void Input(float fDeltaTime);
@@ -44,13 +53,5 @@ public:
 		return m_fSpeed;
 	}
 
-protected:
-	CMoveObj();
-	CMoveObj(const CMoveObj& obj);
-    virtual ~CMoveObj();
-
-private:
-	float m_fAngle;
-	float m_fSpeed;
 };
 

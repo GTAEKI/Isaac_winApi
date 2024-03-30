@@ -3,6 +3,15 @@
 class CStage :
     public CStaticObj
 {
+
+private:
+	friend class CObj;
+	friend class CScene;
+
+	CStage();
+	CStage(const CStage& stage);
+	~CStage();
+
 public:
 	virtual bool Init();
 	virtual void Input(float fDeltaTime);
@@ -12,12 +21,5 @@ public:
 	virtual void Render(HDC hdc, float fDeltaTime);
 	virtual CStaticObj* Clone();
 
-private:
-	friend class CObj;
-	friend class CScene;
-
-	CStage();
-	CStage(const CStage& stage);
-    ~CStage();
 };
 

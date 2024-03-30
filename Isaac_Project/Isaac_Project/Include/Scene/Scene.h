@@ -4,6 +4,18 @@
 
 class CScene
 {
+
+private:
+	static unordered_map<string, class CObj*> m_mapPrototype;
+
+protected:
+	friend class CSceneManager;
+
+	list<class CLayer*> m_LayerList;
+
+	CScene();
+	virtual ~CScene() = 0;
+
 public:
 	virtual bool Init();
 	virtual void Input(float fDeltaTime);
@@ -43,15 +55,5 @@ public:
 	static class CObj* FindPrototype(const string& strKey);
 
 
-protected:
-	friend class CSceneManager;
-
-	list<class CLayer*> m_LayerList;
-
-	CScene();
-	virtual ~CScene() = 0;
-
-private:
-	static unordered_map<string,class CObj*> m_mapPrototype;
 };
 

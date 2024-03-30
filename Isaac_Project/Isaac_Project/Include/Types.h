@@ -4,6 +4,21 @@ typedef struct _tagResolution
 {
 	unsigned int iW;
 	unsigned int iH;
+
+
+	_tagResolution()
+		:iW(0)
+		, iH(0)
+	{
+
+	}
+
+	_tagResolution(float _x, float _y)
+		:iW(_x)
+		,iH(_y)
+	{
+		
+	}
 }RESOLUTION, *PRESOLUTION;
 
 typedef struct _tagPosition 

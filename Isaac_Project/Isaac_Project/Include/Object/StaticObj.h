@@ -3,6 +3,11 @@
 class CStaticObj :
     public CObj
 {
+protected:
+	CStaticObj();
+	CStaticObj(const CStaticObj& staticObj);
+	virtual ~CStaticObj();
+
 public :
 	virtual bool Init()=0;
 	virtual void Input(float fDeltaTime);
@@ -12,10 +17,5 @@ public :
 	virtual void Render(HDC hdc, float fDeltaTime);
 	virtual CStaticObj* Clone() = 0;
 
-
-protected:
-	CStaticObj();
-	CStaticObj(const CStaticObj& staticObj);
-    virtual ~CStaticObj();
 };
 

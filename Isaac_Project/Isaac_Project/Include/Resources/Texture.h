@@ -6,13 +6,6 @@
 class CTexture :
     public CRef
 {
-public:
-    bool LoadTexture(HINSTANCE hInst, HDC hdc, const string& strKey, const wchar_t* pFileName, const string& strPathKey = TEXTURE_PATH);
-    HDC GetDC() const 
-    {
-        return m_hMemDC;
-    }
-    
 private:
     friend class CResourcesManager;
 
@@ -23,5 +16,12 @@ private:
 
     CTexture();
     ~CTexture();
+
+public:
+    bool LoadTexture(HINSTANCE hInst, HDC hdc, const string& strKey, const wchar_t* pFileName, const string& strPathKey = TEXTURE_PATH);
+    HDC GetDC() const 
+    {
+        return m_hMemDC;
+    }
 };
 

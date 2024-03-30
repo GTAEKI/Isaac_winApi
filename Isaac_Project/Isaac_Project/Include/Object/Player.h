@@ -5,6 +5,17 @@
 class CPlayer :
     public CMoveObj
 {
+
+private:
+	friend class CObj;
+	friend class CScene;
+
+	CPlayer();
+	CPlayer(const CPlayer& player);
+	~CPlayer();
+
+	void Fire();
+
 public :
 	virtual bool Init();
 	virtual void Input(float fDeltaTime);
@@ -14,14 +25,5 @@ public :
 	virtual void Render(HDC hdc, float fDeltaTime);
 	virtual CPlayer* Clone();
 
-private:
-	friend class CObj;
-	friend class CScene;
-
-	CPlayer();
-	CPlayer(const CPlayer& player);
-    ~CPlayer();
-
-	void Fire();
 };
 

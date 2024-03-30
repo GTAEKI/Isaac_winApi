@@ -2,12 +2,12 @@
 
 bool CPlayer::Init()
 {
-	SetPos(0, 0);
-	SetSize(25.f, 25.f);
+	SetPos(50, 50);
+	SetSize(30.f, 35.f);
 	SetSpeed(400.f);
 	SetPivot(0.9f, 0.8);
 
-	SetTexture("Player", L"lost_contact_tears.bmp");
+	SetTexture("Player", L"Character1.bmp");
 
 	return true;
 }

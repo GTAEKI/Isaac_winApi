@@ -52,6 +52,9 @@
     <Filter Include="03. Object\02. StaticObj\01.Stage">
       <UniqueIdentifier>{165550cd-aba5-4b16-8090-ebf150391f2d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Core\03.Camera">
+      <UniqueIdentifier>{1386ef02-cf53-483e-93aa-3967a9032679}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -96,9 +99,6 @@
     <ClCompile Include="Object\Bullet.cpp">
       <Filter>03. Object\01. MoveObj\03.Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="PathManager.cpp">
-      <Filter>01. Core</Filter>
-    </ClCompile>
     <ClCompile Include="Resources\ResourcesManager.cpp">
       <Filter>04.Resources</Filter>
     </ClCompile>
@@ -107,6 +107,12 @@
     </ClCompile>
     <ClCompile Include="Object\Stage.cpp">
       <Filter>03. Object\02. StaticObj\01.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>01. Core\03.Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="PathManager.cpp">
+      <Filter>01. Core\02.Path</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,9 +167,6 @@
     <ClInclude Include="Object\Bullet.h">
       <Filter>03. Object\01. MoveObj\03.Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="PathManager.h">
-      <Filter>01. Core</Filter>
-    </ClInclude>
     <ClInclude Include="Resources\ResourcesManager.h">
       <Filter>04.Resources</Filter>
     </ClInclude>
@@ -172,6 +175,12 @@
     </ClInclude>
     <ClInclude Include="Object\Stage.h">
       <Filter>03. Object\02. StaticObj\01.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>01. Core\03.Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="PathManager.h">
+      <Filter>01. Core\02.Path</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

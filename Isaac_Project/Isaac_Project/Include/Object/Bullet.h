@@ -3,6 +3,18 @@
 class CBullet :
     public CMoveObj
 {
+
+private:
+	friend class CObj;
+	friend class CScene;
+
+	CBullet();
+	CBullet(const CBullet& bullet);
+	~CBullet();
+
+	float m_fLimitDist;
+	float m_fDist;
+
 public:
 	virtual bool Init();
 	virtual int Update(float fDeltaTime);
@@ -16,15 +28,5 @@ public:
 		m_fLimitDist = fDist;
 	}
 
-private:
-	friend class CObj;
-	friend class CScene;
-
-	CBullet();
-	CBullet(const CBullet& bullet);
-	~CBullet();
-
-	float m_fLimitDist;
-	float m_fDist;
 };
 

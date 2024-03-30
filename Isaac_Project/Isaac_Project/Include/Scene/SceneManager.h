@@ -6,6 +6,10 @@ class CSceneManager
 {
 	DECLARE_SINGLE(CSceneManager);
 
+private:
+	class CScene* m_pScene;
+	class CScene* m_pNextScene;
+
 public:
 
 	bool Init();
@@ -49,8 +53,5 @@ public:
 	}
 	
 
-private:
-	class CScene* m_pScene;
-	class CScene* m_pNextScene;
 };
 
