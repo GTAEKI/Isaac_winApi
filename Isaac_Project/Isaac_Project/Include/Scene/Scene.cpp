@@ -8,8 +8,8 @@ unordered_map<string, CObj*> CScene:: m_mapPrototype;
 CScene::CScene()
 {
 	CLayer* pLayer = CreateLayer("UI", INT_MAX);
-	pLayer = CreateLayer("Default");
-
+	pLayer = CreateLayer("Default",1);
+	pLayer = CreateLayer("Stage",0);
 }
 
 CScene::~CScene()

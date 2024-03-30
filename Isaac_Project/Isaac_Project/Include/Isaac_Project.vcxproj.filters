@@ -49,6 +49,9 @@
     <Filter Include="04.Resources">
       <UniqueIdentifier>{dbc22b99-043a-4dfa-b9ec-35b9864a17ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03. Object\02. StaticObj\01.Stage">
+      <UniqueIdentifier>{165550cd-aba5-4b16-8090-ebf150391f2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -101,6 +104,9 @@
     </ClCompile>
     <ClCompile Include="Resources\Texture.cpp">
       <Filter>04.Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Stage.cpp">
+      <Filter>03. Object\02. StaticObj\01.Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="Resources\Texture.h">
       <Filter>04.Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Stage.h">
+      <Filter>03. Object\02. StaticObj\01.Stage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

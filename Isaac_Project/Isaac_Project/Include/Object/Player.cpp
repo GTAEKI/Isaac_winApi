@@ -1,11 +1,11 @@
-#include "Player.h"
+﻿#include "Player.h"
 
 bool CPlayer::Init()
 {
 	SetPos(0, 0);
 	SetSize(25.f, 25.f);
 	SetSpeed(400.f);
-	SetPivot(0.5f, 0.5f);
+	SetPivot(0.9f, 0.8);
 
 	SetTexture("Player", L"lost_contact_tears.bmp");
 
@@ -87,9 +87,13 @@ void CPlayer::Fire()
 {
 	CObj* pBullet = CObj::CreateCloneObj("Bullet", "PlayerBullet", m_pLayer);
 
+	// 오른쪽 가운데를 구한다.
+	POSITION tPos;
+	tPos.x = m_tPos.x + (1.f - m_tPivot.x) * m_tSize.x;
+	tPos.y = m_tPos.y + (0.5f - m_tPivot.y) * m_tSize.y;
+
 	//pBullet->SetSize(50.f, 50.f);
-	pBullet->SetPos(m_tPos.x + m_tSize.x, 
-		((m_tPos.y + m_tPos.y + m_tSize.y) / 2.f) - (pBullet->GetSize().y / 2.f));
+	pBullet->SetPos(tPos.x, tPos.y - (pBullet->GetSize().y / 2.f));
 
 	SAFE_RELEASE(pBullet);
 }

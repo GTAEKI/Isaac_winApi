@@ -56,7 +56,6 @@ void CObj::Render(HDC hdc, float fDeltaTime)
 
 		BitBlt(hdc, tPos.x, tPos.y, m_tSize.x, m_tSize.y, m_pTexture->GetDC(), 0,0, SRCCOPY);
 	}
-
 }
 
 void CObj::SetTexture(CTexture* pTexture)
