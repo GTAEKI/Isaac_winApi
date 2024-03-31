@@ -3,7 +3,12 @@
 
 bool CBullet::Init()
 {
+	SetPos(0, 0);
+	SetSize(25.f, 25.f);
 	SetSpeed(500.f);
+	SetPivot(0.5f, 0.5f);
+
+	SetTexture("Bullet", L"lost_contact_tears.bmp");
 
 	return true;
 }
@@ -39,7 +44,7 @@ void CBullet::Collision(float fDeltaTime)
 void CBullet::Render(HDC hdc, float fDeltaTime)
 {
 	CMoveObj::Render(hdc, fDeltaTime);
-	Ellipse(hdc, m_tPos.x, m_tPos.y, m_tPos.x + m_tSize.x, m_tPos.y + m_tSize.y);
+	//Ellipse(hdc, m_tPos.x, m_tPos.y, m_tPos.x + m_tSize.x, m_tPos.y + m_tSize.y);
 }
 
 CBullet* CBullet::Clone()
