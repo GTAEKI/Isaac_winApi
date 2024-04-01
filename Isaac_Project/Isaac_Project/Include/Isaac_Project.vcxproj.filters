@@ -55,6 +55,9 @@
     <Filter Include="01. Core\03.Camera">
       <UniqueIdentifier>{1386ef02-cf53-483e-93aa-3967a9032679}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Core\04. Input">
+      <UniqueIdentifier>{a09e80f5-399c-41d3-a805-59d8988ff0ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -113,6 +116,9 @@
     </ClCompile>
     <ClCompile Include="PathManager.cpp">
       <Filter>01. Core\02.Path</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>01. Core\04. Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="PathManager.h">
       <Filter>01. Core\02.Path</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>01. Core\04. Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

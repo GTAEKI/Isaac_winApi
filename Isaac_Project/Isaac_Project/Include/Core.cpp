@@ -5,6 +5,7 @@
 #include "Resources/ResourcesManager.h"
 #include "Resources/Texture.h"
 #include "Camera.h"
+#include "Input.h"
 
 CCore* CCore::m_pInst = NULL;
 bool CCore::m_bLoop = true;
@@ -12,7 +13,7 @@ bool CCore::m_bLoop = true;
 CCore::CCore()
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); // 메모리 누수를 체크
-	//_CrtSetBreakAlloc(214); //메모리 누수 있을때만 그 위치로 이동해주는것
+	//_CrtSetBreakAlloc(191); //메모리 누수 있을때만 그 위치로 이동해주는것
 }
 
 CCore::~CCore() 
@@ -22,6 +23,7 @@ CCore::~CCore()
 	DESTROY_SINGLE(CTimer);
 	DESTROY_SINGLE(CPathManager); 
 	DESTROY_SINGLE(CResourcesManager);
+	DESTROY_SINGLE(CInput);
 
 	ReleaseDC(m_hWnd, m_hDC);
 }
@@ -88,6 +90,7 @@ void CCore::Input(float fDeltaTime)
 
 int CCore::Update(float fDeltaTime)
 {
+	GET_SINGLE(CInput)->Update(fDeltaTime);
 	GET_SINGLE(CSceneManager)->Update(fDeltaTime);
 	GET_SINGLE(CCamera)->Update(fDeltaTime);
 	return 0;
@@ -148,6 +151,11 @@ bool CCore::Init(HINSTANCE hInst)
 
 	// 경로 관리자 초기화
 	if (!GET_SINGLE(CPathManager)->Init())
+	{
+		return false;
+	}
+
+	if (!GET_SINGLE(CInput)->Init(m_hWnd)) 
 	{
 		return false;
 	}
