@@ -209,6 +209,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Collider\Collider.cpp" />
+    <ClCompile Include="Collider\ColliderRect.cpp" />
+    <ClCompile Include="Collider\CollisionManager.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
@@ -231,6 +234,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Collider\Collider.h" />
+    <ClInclude Include="Collider\ColliderRect.h" />
+    <ClInclude Include="Collider\CollisionManager.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Flag.h" />
     <ClInclude Include="Game.h" />

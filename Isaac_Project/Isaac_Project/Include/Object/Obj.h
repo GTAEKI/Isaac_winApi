@@ -25,6 +25,7 @@ protected:
 	class CScene* m_pScene;
 	class CLayer* m_pLayer;
 	class CTexture* m_pTexture;
+	list<class CCollider*> m_ColliderList;
 
 public:
 	virtual bool Init() = 0;

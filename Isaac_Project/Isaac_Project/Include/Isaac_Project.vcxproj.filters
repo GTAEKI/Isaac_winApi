@@ -58,6 +58,9 @@
     <Filter Include="01. Core\04. Input">
       <UniqueIdentifier>{a09e80f5-399c-41d3-a805-59d8988ff0ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="05.Collider">
+      <UniqueIdentifier>{58e5a4e0-d14b-42e4-ab60-e287cbc793fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -119,6 +122,15 @@
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>01. Core\04. Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider\Collider.cpp">
+      <Filter>05.Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider\ColliderRect.cpp">
+      <Filter>05.Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider\CollisionManager.cpp">
+      <Filter>05.Collider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +202,15 @@
     </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>01. Core\04. Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider\Collider.h">
+      <Filter>05.Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider\ColliderRect.h">
+      <Filter>05.Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider\CollisionManager.h">
+      <Filter>05.Collider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
