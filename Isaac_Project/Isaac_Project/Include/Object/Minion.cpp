@@ -1,15 +1,24 @@
-#include "Minion.h"
+﻿#include "Minion.h"
 #include "../Core.h"
+#include "../Collider/ColliderRect.h"
 
 bool CMinion::Init()
 {
 	SetPos(800.f, 100.f);
 	SetSize(64.f, 64.f);
+	SetPivot(0.5f, 0.5f);
 	SetSpeed(300.f);
 
 	SetTexture("Minion", L"monster_160_membrain.bmp");
 
 	m_eDir = MD_FRONT;
+
+	CColliderRect* pRC = AddCollider<CColliderRect>("Minion");
+
+	pRC->SetRect(-32.f, -32.f, 32.f, 32.f);
+	pRC->AddCollisionFunction(CS_ENTER, this, &CMinion::CollisionBullet);
+
+	SAFE_RELEASE(pRC);
 
 	return true;
 }
@@ -63,6 +72,11 @@ void CMinion::Render(HDC hdc, float fDeltaTime)
 CMinion* CMinion::Clone()
 {
 	return new CMinion(*this);
+}
+
+void CMinion::CollisionBullet(CCollider* pSrc, CCollider* pDest, float fDeltaTime)
+{
+	MessageBox(NULL, L"충돌", L"충돌", MB_OK);
 }
 
 CMinion::CMinion()

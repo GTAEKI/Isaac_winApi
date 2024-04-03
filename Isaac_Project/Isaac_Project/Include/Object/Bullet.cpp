@@ -1,4 +1,5 @@
 #include "Bullet.h"
+#include "../Collider/ColliderRect.h"
 
 
 bool CBullet::Init()
@@ -9,6 +10,12 @@ bool CBullet::Init()
 	SetPivot(0.5f, 0.5f);
 
 	SetTexture("Bullet", L"lost_contact_tears.bmp");
+
+	CColliderRect* pRC = AddCollider<CColliderRect>("Minion");
+
+	pRC->SetRect(-12.5f, -12.5f, 12.5f, 12.5f);
+
+	SAFE_RELEASE(pRC);
 
 	return true;
 }

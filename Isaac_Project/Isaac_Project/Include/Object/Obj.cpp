@@ -33,6 +33,9 @@ CObj::CObj(const CObj& obj)
 	for (iter = obj.m_ColliderList.begin(); iter != iterEnd; ++iter) 
 	{
 		CCollider* pColl = (*iter)->Clone();
+
+		pColl->SetObj(this); // 프로토타입은 그대로 있잖아
+
 		m_ColliderList.push_back(pColl);
 	}
 }
@@ -50,11 +53,63 @@ void CObj::Input(float fDeltaTime)
 
 int CObj::Update(float fDeltaTime)
 {
+	list<CCollider*>::iterator iter;
+	list<CCollider*>::iterator iterEnd = m_ColliderList.end();
+
+	for (iter = m_ColliderList.begin(); iter != iterEnd;) 
+	{
+		if (!(*iter)->GetEnable()) 
+		{
+			++iter;
+			continue;
+		}
+
+		(*iter)->Update(fDeltaTime);
+
+		if (!(*iter)->GetLive()) 
+		{
+			SAFE_RELEASE((*iter));
+			iter = m_ColliderList.erase(iter);
+			iterEnd = m_ColliderList.end();
+		}
+		else 
+		{
+			++iter;
+		}
+	}
+
 	return 0;
 }
 
 int CObj::LateUpdate(float fDeltaTime)
 {
+
+	list<CCollider*>::iterator iter;
+	list<CCollider*>::iterator iterEnd = m_ColliderList.end();
+
+	for (iter = m_ColliderList.begin(); iter != iterEnd;)
+	{
+		if (!(*iter)->GetEnable())
+		{
+			++iter;
+			continue;
+		}
+
+		(*iter)->LateUpdate(fDeltaTime);
+
+		if (!(*iter)->GetLive())
+		{
+			SAFE_RELEASE((*iter));
+			iter = m_ColliderList.erase(iter);
+			iterEnd = m_ColliderList.end();
+		}
+		else
+		{
+			++iter;
+		}
+	}
+
+
 	return 0;
 }
 
@@ -71,6 +126,34 @@ void CObj::Render(HDC hdc, float fDeltaTime)
 
 		BitBlt(hdc, tPos.x, tPos.y, m_tSize.x, m_tSize.y, m_pTexture->GetDC(), 0,0, SRCCOPY);
 	}
+
+
+	//TODO 충돌체 랜더링은 디버그모드 빌드에서만 출력되게끔 처리 필요
+	list<CCollider*>::iterator iter;
+	list<CCollider*>::iterator iterEnd = m_ColliderList.end();
+
+	for (iter = m_ColliderList.begin(); iter != iterEnd;)
+	{
+		if (!(*iter)->GetEnable())
+		{
+			++iter;
+			continue;
+		}
+
+		(*iter)->Render(hdc,fDeltaTime);
+
+		if (!(*iter)->GetLive())
+		{
+			SAFE_RELEASE((*iter));
+			iter = m_ColliderList.erase(iter);
+			iterEnd = m_ColliderList.end();
+		}
+		else
+		{
+			++iter;
+		}
+	}
+
 }
 
 void CObj::SetTexture(CTexture* pTexture)

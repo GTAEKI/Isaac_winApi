@@ -1,6 +1,7 @@
 ﻿#include "Player.h"
 #include "../Input.h"
-#include <WinUser.h>
+#include "../Collider/ColliderRect.h"
+
 
 bool CPlayer::Init()
 {

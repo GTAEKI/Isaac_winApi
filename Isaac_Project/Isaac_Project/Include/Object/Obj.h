@@ -28,6 +28,37 @@ protected:
 	list<class CCollider*> m_ColliderList;
 
 public:
+	template<typename T>
+	T* AddCollider(const string& strTag) 
+	{
+		T* pCollider = new T;
+
+		pCollider->SetObj(this);
+
+		if (!pCollider->Init()) 
+		{
+			SAFE_RELEASE(pCollider);
+			return NULL;
+		}
+
+		pCollider->AddRef();
+		m_ColliderList.push_back(pCollider);
+
+		return pCollider;
+	}
+
+	bool CheckCollider() 
+	{
+		return !m_ColliderList.empty(); // 비어있으면 false, 있으면 true 반환
+	}
+
+	const list<class CCollider*>* GetColliderList() const 
+	{
+		return &m_ColliderList; // 리스트 포인터를 넘김, 그러나 const이므로 내용변경안됨
+	}
+
+
+public:
 	virtual bool Init() = 0;
 	virtual void Input(float fDeltaTime);
 	virtual int Update(float fDeltaTime);

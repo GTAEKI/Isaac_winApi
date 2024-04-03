@@ -106,7 +106,9 @@ int CCore::LateUpdate(float fDeltaTime)
 
 void CCore::Collision(float fDeltaTime)
 {
-	GET_SINGLE(CSceneManager)->Collision(fDeltaTime);
+	GET_SINGLE(CSceneManager)->Collision(fDeltaTime); // 충돌체가 다 모여있을것이다.
+
+	GET_SINGLE(CCollisionManager)->Collision(fDeltaTime); // 콜리전 매니저의 콜리전이 호출된다.
 }
 
 void CCore::Render(float fDeltaTime)
