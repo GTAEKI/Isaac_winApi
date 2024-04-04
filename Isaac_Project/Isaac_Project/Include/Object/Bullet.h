@@ -28,5 +28,7 @@ public:
 		m_fLimitDist = fDist;
 	}
 
+	void Hit(class CCollider* pSrc, class CCollider* pDest, float fDeltaTime);
+
 };
 

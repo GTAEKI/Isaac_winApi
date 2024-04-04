@@ -1,4 +1,5 @@
-﻿#include "CollisionManager.h"
+﻿#include <iostream>
+#include "CollisionManager.h"
 #include "../Object/Obj.h"
 #include "../Collider/Collider.h"
 
@@ -35,11 +36,14 @@ void CCollisionManager::Collision(float fDeltaTime)
 	// 제일 단순한 완전탐색을 해보자. 이중포문으로 전체 충돌처리 검사
 	list<CObj*>::iterator iter;
 	list<CObj*>::iterator iterEnd = m_CollisionList.end();
-	
-	for (iter = m_CollisionList.begin(); iter != prev(iterEnd); ++iter) 
+	--iterEnd;
+
+	for (iter = m_CollisionList.begin(); iter != iterEnd; ++iter) 
 	{
-		list<CObj*>::iterator innerIter = next(iter);
-		for (; innerIter != iterEnd; ++innerIter) 
+		list<CObj*>::iterator innerIter = iter;
+		++innerIter;
+		list<CObj*>::iterator innerIterEnd = m_CollisionList.end();
+		for (; innerIter != innerIterEnd; ++innerIter) 
 		{
 			Collision(*iter, *innerIter, fDeltaTime);
 		}
@@ -50,8 +54,14 @@ void CCollisionManager::Collision(float fDeltaTime)
 
 bool CCollisionManager::Collision(CObj* pSrc, CObj* pDest, float fDeltaTime)
 {
-	const list<CCollider*>* pSrcList = pSrc->GetColliderList();
+	if (pSrc->GetTag().compare("PlayerBullet") == 0)
+	{
+		std::cout << "Hi";
+	}
+
+ 	const list<CCollider*>* pSrcList = pSrc->GetColliderList();
 	const list<CCollider*>* pDestList = pDest->GetColliderList();
+
 
 	list<CCollider*>::const_iterator iterSrc;
 	list<CCollider*>::const_iterator iterSrcEnd = pSrcList->end();
@@ -70,9 +80,9 @@ bool CCollisionManager::Collision(CObj* pSrc, CObj* pDest, float fDeltaTime)
 				bCollision = true;
 
 				// 충돌목록에서 이전에 충돌된적이 없다면 처음 막 충돌되었다는 의미이다.
-				if ((*iterSrc)->CheckCollisionList(*iterDest)) 
+				if (!(*iterSrc)->CheckCollisionList(*iterDest)) //18 분
 				{
-					//서로 상대방을 충돌 목골으로 추가한다.
+					// 서로 상대방을 충돌 목록으로 추가한다.
 					(*iterSrc)->AddCollider(*iterDest);
 					(*iterDest)->AddCollider(*iterSrc);
 

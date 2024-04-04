@@ -47,6 +47,16 @@ public:
 		return pCollider;
 	}
 
+	template<typename T>
+	void AddCollisionFunction(const string& strTag, COLLISION_STATE eState, T* pObj, void(T::* pFunc)(CCollider*, CCollider*, float)) 
+	{
+		list<class CCollider*> ::iterator iter;
+		list<class CCollider*> ::iterator iterEnd = m_ColliderList.end();
+
+		for(iter = m_Collider)
+
+	}
+
 	bool CheckCollider() 
 	{
 		return !m_ColliderList.empty(); // 비어있으면 false, 있으면 true 반환

@@ -64,6 +64,7 @@ public:
 
 		for (iter = m_CollisionList.begin(); iter != iterEnd; ++iter) 
 		{
+
 			if (*iter == pCollider) 
 			{
 				return true;

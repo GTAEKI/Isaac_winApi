@@ -32,7 +32,7 @@ bool CCollider::CollisionRectToRect(const RECTANGLE& src, const RECTANGLE& dest)
 	else if (src.b < dest.t)
 		return false;
 
-	return true;
+ 	return true;
 }
 
 bool CCollider::Init()

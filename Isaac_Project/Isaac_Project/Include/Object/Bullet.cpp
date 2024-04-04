@@ -11,7 +11,7 @@ bool CBullet::Init()
 
 	SetTexture("Bullet", L"lost_contact_tears.bmp");
 
-	CColliderRect* pRC = AddCollider<CColliderRect>("Minion");
+	CColliderRect* pRC = AddCollider<CColliderRect>("Bullet");
 
 	pRC->SetRect(-12.5f, -12.5f, 12.5f, 12.5f);
 
@@ -57,6 +57,11 @@ void CBullet::Render(HDC hdc, float fDeltaTime)
 CBullet* CBullet::Clone()
 {
 	return new CBullet(*this);
+}
+
+void CBullet::Hit(CCollider* pSrc, CCollider* pDest, float fDeltaTime)
+{
+	
 }
 
 CBullet::CBullet(const CBullet& bullet)
